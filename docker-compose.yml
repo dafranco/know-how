@@ -1,0 +1,19 @@
+version: "2"
+
+services:
+  app:
+    container_name: app
+    build: ./app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+    links:
+      - mongo
+    volumes:
+    - "./app:/usr/src/app"
+    - "/usr/src/app/node_modules"
+  mongo:
+    image: mongo:3.4.1
+    ports:
+      - "27017:27017"
