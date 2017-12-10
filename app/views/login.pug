@@ -3,9 +3,14 @@ extends admin-layout
 block content
   section
     div.container
-      form(method="POST")
-        label(for="username")
-        input#username(type="text", name="username",placeholder="Usuario")
-        label(for="password")
-        input#username(type="text", name="password",placeholder="Contraseña")
-        button(type="submit") Ingresar!
+      div.row.justify-content-center
+        form.col-5(method="POST")
+          fieldset.col-12
+            div.row.mt-4
+              label(for="username")
+              input.col-12#username(type="text", name="username",placeholder="Usuario")
+            div.row.mt-2
+              label(for="password")
+              input.col-12#username(type="text", name="password",placeholder="Contraseña")
+            div.row.mt-2
+              button(type="submit") Ingresar!
