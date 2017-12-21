@@ -1,12 +1,14 @@
 extends admin-layout
 
 block content
-	section
-		form(method="POST")
-			label(for="readable_name")
-			input#username(type="text", name="readable_name",placeholder="Nombre y Apellido")
-			label(for="username")
-			input#username(type="text", name="username",placeholder="Nombre de Usuario")
-			label(for="password")
-			input#username(type="password", name="password",placeholder="Contraseña")
-			button(type="submit") Registrarse!
+	section.container
+		div.row.justify-content-center
+			form.col-5(method="POST")
+				div.row.mt-4
+					input.col-12#username(type="text", name="readable_name",placeholder="Nombre y Apellido")
+				div.row.mt-2
+					input.col-12#username(type="text", name="username",placeholder="Nombre de Usuario")
+				div.row.mt-2
+					input.col-12#username(type="password", name="password",placeholder="Contraseña")
+				div.row.mt-2
+					button(type="submit") Registrarse!

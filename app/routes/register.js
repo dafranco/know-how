@@ -7,7 +7,8 @@ router.get('/', function (req, res, next) {
 })
 
 router.post('/', function (req, res, next) {
-  User.register(new User({ username: req.body.username, readable_name: req.body.readable_name, active: false }), req.body.password, function (err) {
+  console.log(req.body);
+  return User.register(new User({ username: req.body.username, readable_name: req.body.readable_name, active: false }), req.body.password, function (err) {
     if (err) {
       console.log('error while user register!', err);
       return next(err);

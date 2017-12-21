@@ -1,0 +1,16 @@
+extends admin-layout
+
+block content
+  section
+    div.row.justify-content-center.mb-4
+      h3 Carga de evento
+    div.row.justify-content-center
+      form.form(action="/admin/events", method="POST" enctype='multipart/form-data')
+        div.form-group
+          label(for="link") Link
+          input.form-control(type="text", name="link")
+        div.form-group
+          label(for="exampleFormControlFile1") Imagen
+          <input type="file" id="image" name="image">
+        button.btn.btn-primary(type="submit") Crear!
+

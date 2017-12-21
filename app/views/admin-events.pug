@@ -1,0 +1,19 @@
+extends admin-layout
+block content
+  section
+    div.row.mt-4.mb-4
+      h3 Eventos Creados
+    div.row
+      table.table
+        thead
+          tr
+            th Nombre
+            th Descripción
+            th Link
+            th Imagen
+        tbody
+          each event in [{name: 'hola', description:'La description'}]
+            tr
+              td= event.name
+              td= event.description
+            
