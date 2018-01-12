@@ -14,15 +14,6 @@ router.get('/', function (req, res, next) {
     })
 
 });
-router.get('/prueba', function(req,res,next){
-  return Event.find({}).sort({ created_date: -1 }).limit(3)
-    .then(events => {
-      events.forEach(event => event.image_path = '/upload/' + event.image_path)
-      events = undefined;
-      return res.render('index-new', { title: 'Express', events: events });
-    })
-  
-})
 router.use('/users', users);
 router.use('/login', login);
 router.use('/register', register)
