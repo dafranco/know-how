@@ -2,6 +2,8 @@ version: "2"
 
 services:
   app:
+    environment: 
+    - NODE_ENV=production
     container_name: app
     build: ./app
     ports:
