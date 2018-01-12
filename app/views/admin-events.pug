@@ -7,13 +7,16 @@ block content
       table.table
         thead
           tr
-            th Nombre
+            th Id
             th Descripción
             th Link
             th Imagen
         tbody
-          each event in [{name: 'hola', description:'La description'}]
+          each event in events
             tr
-              td= event.name
+              td= event.id
               td= event.description
+              td= event.link
+              td= event.image_path
+              
             

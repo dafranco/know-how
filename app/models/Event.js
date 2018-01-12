@@ -5,7 +5,8 @@ const Event = new Schema({
   created_date: { type: Date, defaultsTo: new Date() },
   creation_user: Schema.Types.Mixed,
   link: String,
-  image_path: String
+  image_path: String,
+  description: String
 });
 
 module.exports = mongoose.model('Event', Event);

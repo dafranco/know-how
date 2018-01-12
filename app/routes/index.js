@@ -4,12 +4,25 @@ const users = require('./users');
 const login = require('./login');
 const register = require('./register');
 const admin = require('./admin');
-
+const Event = require('../models/Event');
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+  return Event.find({}).sort({ created_date: -1 }).limit(3)
+    .then(events => {
+      events.forEach(event => event.image_path = '/upload/' + event.image_path)
+      return res.render('index', { title: 'Express', events: events });
+    })
 
+});
+router.get('/prueba', function(req,res,next){
+  return Event.find({}).sort({ created_date: -1 }).limit(3)
+    .then(events => {
+      events.forEach(event => event.image_path = '/upload/' + event.image_path)
+      events = undefined;
+      return res.render('index-new', { title: 'Express', events: events });
+    })
+  
+})
 router.use('/users', users);
 router.use('/login', login);
 router.use('/register', register)

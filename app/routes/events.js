@@ -23,7 +23,9 @@ const Event = require('../models/Event');
 router.post('/', upload.single('image'), function (req, res, next) {
   let created_event = new Event({
     image_path: req.file.filename,
-    created_date: new Date()
+    created_date: new Date(),
+    link: req.body.link,
+    description: req.body.description
   })
   return created_event.save()
     .then(created => res.status(200).json(created))
@@ -31,10 +33,9 @@ router.post('/', upload.single('image'), function (req, res, next) {
 })
 
 router.get('/', function (req, res, next) {
-  return User.findOne({ username: req.session.passport.user })
-    .then(user => {
-      console.log(user);
-      return res.render('admin-events', { user: user })
+  return Promise.all([User.findOne({ username: req.session.passport.user }), Event.find()])
+    .then(values => {
+      return res.render('admin-events', { user: values[0], events: values[1] })
     })
 })
 router.get('/new', function (req, res, next) {
