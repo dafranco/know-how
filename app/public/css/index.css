@@ -26,9 +26,16 @@ font-family: Gotham-light-italic
   width: 66em;
   height: 16em;
 }
-#crear-img-container{
+/*#crear-img-container{
   position: absolute;
   top: 12%
+}*/
+#logo-grande-container{
+
+}
+#logo-grande-img{
+  width: 100%;
+  height: auto;
 }
 #quienes-somos, #capacitaciones{
   background: url(/img/fondo-02.jpg);
