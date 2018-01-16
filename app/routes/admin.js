@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 let events = require('./events')
+let User = require('../models/User');
 /* GET home admin page. */
 
 router.use(function (req, res, next) {
@@ -10,7 +11,11 @@ router.use(function (req, res, next) {
     next();
 })
 router.get('/', function (req, res, next) {
-  res.render('admin-index', { user: req.session.passport.user });
+  User.findOne({ username: req.session.passport.user })
+    .then(user => {
+      return res.render('admin-index', { user: user });
+    })
+
 });
 
 router.use('/events', events);
