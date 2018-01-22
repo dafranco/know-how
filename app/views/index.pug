@@ -361,13 +361,13 @@ html
           h2.text-center ESCRIBINOS
           div.text-center   
             img.text-center(src="/img/triangulo.png", alt="")
-          form
+          form(action='message' method='post')
             .form-group
-              input#name.form-control(type='name', aria-describedby='nameHelp', placeholder='Nombre')
+              input#name.form-control(name='name' type='name', aria-describedby='nameHelp', placeholder='Nombre')
             .form-group
-              input#email.form-control(type='email', placeholder='ejemplo@email.com')
+              input#email.form-control(name='email' type='email', placeholder='ejemplo@email.com')
             .form-group
-              textarea#message.form-control(rows='3', placeholder='Tu mensaje')
+              textarea#message.form-control(name='body' rows='3', placeholder='Tu mensaje')
             button#submit.btn.btn-primary(type='submit') Enviar
     footer#footer.container-fluid
       div.row.justify-content-center
