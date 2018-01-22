@@ -1,0 +1,33 @@
+extends admin-layout
+block content
+  section
+    div.row.mt-4.mb-4
+      h3 Mensajes recibidos
+    div.row
+      table.table
+        thead
+          tr
+            th Fecha
+            th Nombre
+            th Email
+            th Mensaje
+        tbody
+          each message in messages
+            tr
+              td= message.created_at
+              td= message.name
+              td= message.email
+              td= message.body
+              
+            
+
+    nav(aria-label='Page navigation example')
+      ul.pagination
+        li.page-item(class= pagination.previous? "":"disabled")
+          a.page-link(href='?page='+pagination.previous) Previous
+        -var n = 1;
+        while n <= pagination.total 
+          li.page-item(class= n==pagination.active ? "active":"")
+            a.page-link(href='?page='+n)= n++
+        li.page-item(class= pagination.next? "":"disabled")
+          a.page-link(href='?page='+pagination.next) Next
