@@ -23,13 +23,8 @@ font-family: Gotham-light-italic
   background-size: 100% 105%
 }
 #crear-img{
-  width: 66em;
-  height: 16em;
+  width: 100%;
 }
-/*#crear-img-container{
-  position: absolute;
-  top: 12%
-}*/
 #logo-grande-container{
 
 }
@@ -58,11 +53,10 @@ font-family: Gotham-light-italic
   padding-top: 1.3em;
 }
 .quienes-somos-title{
-  font-size: 2.8em;
+  font-size: 200%;
 }
 .quienes-somos-ul{
   font-size: 1.5em;
-
 }
 .text-verde-oscuro{
   color:rgb(75, 90, 32);
@@ -139,7 +133,7 @@ font-family: Gotham-light-italic
   position: absolute;
   top: 15%;
   left: 10%;
-  font-size: 2em;
+  font-size: 160%;
   color: white;
   width: 80%;
   height: 76%;
