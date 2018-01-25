@@ -11,15 +11,14 @@
     <!-- Custom css -->
     link(rel="stylesheet")(type="text/css")(href="/css/admin.css")
   </head>
-  <body class="container">
-    header
-      div.row#header-container
-        div.col-4
-          h3 Know how admin
-        div.offset-4
-        div.col-4
-          if user 
-            h4= 'Hola, ' + user.readable_name
+  <body class="container-fluid">
+    header.row#header-container
+      div.col-4
+        h3 Know how admin
+      div.offset-4
+      div.col-4
+        if user 
+          h4= 'Hola, ' + user.readable_name
     block content
 
     <!-- Optional JavaScript -->

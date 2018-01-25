@@ -5,20 +5,22 @@ let User = require('../models/User');
 let Message = require('../models/Message');
 let moment = require('moment');
 let _ = require('lodash');
+let user;
 /* GET home admin page. */
 
 router.use(function (req, res, next) {
   if (!req.session.passport)
     return res.redirect('/login')
-  else
-    next();
+  else {
+    return User.findOne({ username: req.session.passport.user })
+      .then(db_user => {
+        user = db_user;
+        next();
+      })
+  }
 })
 router.get('/', function (req, res, next) {
-  User.findOne({ username: req.session.passport.user })
-    .then(user => {
-      return res.render('admin-index', { user: user });
-    })
-
+  return res.render('admin-index', { user: user });
 });
 
 router.use('/events', events);
@@ -41,6 +43,7 @@ router.get('/messages', function (req, res) {
 
     let total_pages = Math.floor(count / 5) + 1;
     return res.render('admin-messages', {
+      user: user,
       messages: mapped,
       pagination: {
         active: active_page,
