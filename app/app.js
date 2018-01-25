@@ -18,7 +18,7 @@ mongoose.Promise = bluebird;
 mongoose.connect('mongodb://mongo/know-how', { useMongoClient: true });
 
 const app = express();
-app.use(compression());
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -49,5 +49,5 @@ app.use(passport.session());
 app.use(routes);
 
 
-
+app.use(compression());
 module.exports = app;
