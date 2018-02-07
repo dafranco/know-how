@@ -13,6 +13,8 @@ services:
       - mongo
     links:
       - mongo
+    volumes:
+      - "/usr/src/app/public/upload"
   mongo:
     image: mongo:3.4.1
     ports:
