@@ -28,7 +28,7 @@ router.post('/', upload.single('image'), function (req, res, next) {
     description: req.body.description
   })
   return created_event.save()
-    .then(created => res.status(200).json(created))
+    .then(created => res.redirect('/admin/events'))
     .catch(err => res.status(500).json(err));
 })
 
